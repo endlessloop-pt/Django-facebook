@@ -1,7 +1,7 @@
 from __future__ import with_statement
 from django.contrib.auth.models import AnonymousUser
 from django.contrib.sessions.middleware import SessionMiddleware
-from django.core.urlresolvers import reverse
+from django.urls import reverse
 from django.http import QueryDict
 from django.test.client import Client, RequestFactory
 from django_facebook import exceptions as facebook_exceptions, \
@@ -24,7 +24,7 @@ from open_facebook.api import FacebookConnection, FacebookAuthorization, \
 from open_facebook.exceptions import FacebookSSLError, FacebookURLError
 import logging
 import mock
-from django.utils import six
+import six
 from django_facebook.models import OpenGraphShare
 from django.contrib.contenttypes.models import ContentType
 from open_facebook.exceptions import FacebookUnreachable, OAuthException

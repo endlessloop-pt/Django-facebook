@@ -23,7 +23,7 @@ consult a specific backend's documentation for details.
 
 """
 
-from django.conf.urls import url
+from django.urls import re_path as url
 from django.contrib.auth import views as auth_views
 from django_facebook import registration_views
 from django_facebook.utils import replication_safe

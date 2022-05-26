@@ -1,5 +1,4 @@
-from django.utils.decorators import available_attrs
-from django.utils.functional import wraps
+from functools import wraps
 from django_facebook import settings as fb_settings
 from django_facebook.api import get_persistent_graph, require_persistent_graph
 from django_facebook.utils import get_oauth_url, parse_scope, response_redirect, \
@@ -94,7 +93,7 @@ class FacebookRequired(object):
             @facebook_required(scope=[])
             The init will receive the parameters
         '''
-        @wraps(self.fn, assigned=available_attrs(self.fn))
+        @wraps(self.fn)
         def wrapped_view(request, *args, **kwargs):
             response = self.authenticate(self.fn, request, *args, **kwargs)
             return response
